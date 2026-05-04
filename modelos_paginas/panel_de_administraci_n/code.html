@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Portal - K-Auto Import</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d9e3f4",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "surface-tint": "#3a5f94",
+                        "on-secondary-container": "#596372",
+                        "on-secondary-fixed": "#121c28",
+                        "primary-fixed": "#d5e3ff",
+                        "on-tertiary-fixed-variant": "#743417",
+                        "on-primary-container": "#7497d0",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb597",
+                        "on-secondary-fixed-variant": "#3e4755",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-container-highest": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#a7c8ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface-variant": "#43474f",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#bdc7d8",
+                        "primary": "#001a38",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#d4815d",
+                        "surface-variant": "#e0e3e5",
+                        "outline": "#747781",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed": "#001b3c",
+                        "outline-variant": "#c4c6d1",
+                        "tertiary": "#330e00",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "secondary-container": "#d6e0f1",
+                        "secondary": "#555f6d",
+                        "primary-container": "#002e5d",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "tertiary-container": "#541d02",
+                        "on-tertiary-fixed": "#360f00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #001a38 0%, #002e5d 100%);
+        }
+        .ghost-shadow {
+            box-shadow: 0px 20px 40px rgba(0, 26, 56, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-50 flex flex-col h-full py-6 gap-2 border-r border-slate-200/10">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-bold text-blue-950 tracking-tighter">Admin Portal</h1>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-widest mt-1">Global Logistics</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-blue-900 text-white rounded-lg mx-2 active:opacity-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-headline font-semibold text-sm uppercase tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200 hover:translate-x-1 rounded-lg mx-2 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="font-headline font-semibold text-sm uppercase tracking-tight">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200 hover:translate-x-1 rounded-lg mx-2 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-headline font-semibold text-sm uppercase tracking-tight">Sales History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-200 hover:translate-x-1 rounded-lg mx-2 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-headline font-semibold text-sm uppercase tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-primary-gradient text-white font-headline font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-transform ghost-shadow">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Add New Listing
+            </button>
+<div class="mt-6 pt-6 border-t border-slate-200 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Admin User Profile" data-alt="professional headshot of a middle-aged man in a tailored suit with a confident expression, neutral background, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSZctsQJm5Jv-P85PuXxOD18JAiWLt4RB7fw4tykYFdciv20UzRbYyj9_a3ljhk-FkEZ3O_xTrkzZxXvPUnDnJ4oLAr0qSQ0AVUEV5HVQYd2DA6FfRWP3gNgyTwO6umkIR9tKFRKwW_UkoiOKA0pQjG4OViDOV2LNngbrQkI8o2-9nHFVT5mg958cli1iP0OGbZc3uneNAbDVzsGW6LzfEGZDNj227NC8OqpdV4KhmTvDus-joMN582KPHMB9oRRyPEhiWCp7dnLc"/>
+</div>
+<div>
+<p class="text-xs font-bold text-blue-950">Alexander K.</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-tighter">Chief Logistics Officer</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen p-8 bg-surface">
+<!-- Header -->
+<header class="flex justify-between items-center mb-12">
+<div>
+<h2 class="font-headline text-4xl font-extrabold text-primary tracking-tight">Dashboard Overview</h2>
+<p class="text-secondary mt-1">Real-time statistics for K-Auto Import fleet performance.</p>
+</div>
+<div class="flex gap-4">
+<div class="relative">
+<input class="bg-surface-container-highest border-none border-b-2 border-outline-variant w-64 px-4 py-2 text-sm focus:ring-0 focus:border-primary transition-colors" placeholder="Search VIN, Model..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-outline" data-icon="search">search</span>
+</div>
+</div>
+</header>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-surface-container-lowest p-8 rounded-xl ghost-shadow flex flex-col justify-between border border-transparent hover:border-primary-container transition-colors duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Total Cars</span>
+<span class="material-symbols-outlined text-on-primary-container bg-primary-fixed p-2 rounded-full" data-icon="garage">garage</span>
+</div>
+<div>
+<span class="font-headline text-5xl font-black text-primary">142</span>
+<div class="flex items-center gap-1 text-green-600 mt-2">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span class="text-xs font-bold">+12% from last month</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl ghost-shadow flex flex-col justify-between border border-transparent hover:border-primary-container transition-colors duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Sold Units</span>
+<span class="material-symbols-outlined text-on-tertiary-container bg-tertiary-fixed p-2 rounded-full" data-icon="sell">sell</span>
+</div>
+<div>
+<span class="font-headline text-5xl font-black text-primary">89</span>
+<div class="flex items-center gap-1 text-green-600 mt-2">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span class="text-xs font-bold">+5.2% conversion rate</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl ghost-shadow flex flex-col justify-between border border-transparent hover:border-primary-container transition-colors duration-300">
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Revenue</span>
+<span class="material-symbols-outlined text-on-primary-fixed-variant bg-secondary-fixed p-2 rounded-full" data-icon="payments">payments</span>
+</div>
+<div>
+<span class="font-headline text-5xl font-black text-primary">$4.2M</span>
+<div class="flex items-center gap-1 text-on-tertiary-container mt-2">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+<span class="text-xs font-bold">Q4 Projection: $5.1M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Inventory Table Section -->
+<section class="bg-surface-container-low rounded-xl overflow-hidden ghost-shadow">
+<div class="p-6 flex justify-between items-center bg-surface-container-high">
+<h3 class="font-headline font-bold text-primary tracking-tight uppercase text-sm letter-spacing-wide">Live Inventory Management</h3>
+<div class="flex gap-2">
+<button class="bg-surface-container-lowest p-2 rounded-md hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="filter_list">filter_list</span>
+</button>
+<button class="bg-surface-container-lowest p-2 rounded-md hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-high text-on-surface-variant font-label text-[10px] uppercase tracking-[0.1em]">
+<tr>
+<th class="px-6 py-4 font-semibold">Vehicle Details</th>
+<th class="px-6 py-4 font-semibold">Stock ID / VIN</th>
+<th class="px-6 py-4 font-semibold">Status</th>
+<th class="px-6 py-4 font-semibold text-right">Price (USD)</th>
+<th class="px-6 py-4 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-20 h-14 bg-slate-200 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Genesis G80" class="w-full h-full object-cover" data-alt="sleek modern silver luxury sedan parked in a minimalist showroom, moody high-contrast lighting, sharp reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwno0ZkX18phbH1DdAD5O_OWwnQssii8l1Vngio0K5Z2a-Wo-QmnpsdeZdkY7sKB1MzttBgSf5SrlBirvfmJdDecNoDdV9aEKiFVwYkGO2Tfv5Cu6l8HqhHxQE5Io_wYLIGGc8sHUhebC29-g-Q-Vkh0_EEL5biol59_G9TpPmYWLbncsHyB0_PMr5_yzwFYh5W8e_Q_-vcOwUVcQkreVxcCc1IuSj_R_kSIBstE3gTeA2zBEX8J1dDCrQKpqTzZFXNh1l_0ZvmUI"/>
+</div>
+<div>
+<p class="font-headline font-bold text-primary">Genesis G80 Sport</p>
+<p class="text-[11px] text-secondary">3.5T AWD • 2024 • Obsidian Black</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="font-mono text-xs text-secondary">KA-99201-B7</p>
+<p class="text-[10px] text-outline">KRG80S9201L003</p>
+</td>
+<td class="px-6 py-5">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Available</span>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-headline font-extrabold text-primary">$62,500</p>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-secondary hover:text-primary transition-colors" title="Edit"><span class="material-symbols-outlined text-lg" data-icon="edit">edit</span></button>
+<button class="p-2 text-secondary hover:text-on-tertiary-container transition-colors" title="Mark Sold"><span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span></button>
+<button class="p-2 text-secondary hover:text-error transition-colors" title="Delete"><span class="material-symbols-outlined text-lg" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-20 h-14 bg-slate-200 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Kia EV6" class="w-full h-full object-cover" data-alt="vibrant blue electric crossover vehicle charging at a modern station, twilight sky, neon accents, futuristic aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzR9_zSaR9L0id1ZZqRA8ysXKWZUYPK6sikHhB6Zba1XTqCQqqpkU8s0iTLpZ3slaO_aB7ZTPIQ9NAKe2TUfwxccVnKZU4HlTlTjD7Hp0snJowyZ7QiONsPJOb0a1u33aIPW6FLCOM03qUY6woMqWcXDDFQQ-l5iqlw_UZNulIHTNYEAxu2Qv_oNHgZGfX9khlsO-hmoPH4kx9uMOvYi3jhqsaIsS0SEol6JVAneX-ciHA1crz5zz41iYfgrq1Jt61LfLDLpVL-to"/>
+</div>
+<div>
+<p class="font-headline font-bold text-primary">Kia EV6 GT-Line</p>
+<p class="text-[11px] text-secondary">RWD Long Range • 2023 • Runway Red</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="font-mono text-xs text-secondary">KA-11203-E6</p>
+<p class="text-[10px] text-outline">KNAEV6G11203X9</p>
+</td>
+<td class="px-6 py-5">
+<span class="bg-surface-dim text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Sold</span>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-headline font-extrabold text-primary">$54,200</p>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-secondary hover:text-primary transition-colors" title="View Details"><span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span></button>
+<button class="p-2 text-secondary hover:text-error transition-colors" title="Archive"><span class="material-symbols-outlined text-lg" data-icon="archive">archive</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-20 h-14 bg-slate-200 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Hyundai Ioniq 5" class="w-full h-full object-cover" data-alt="matte grey electric car with pixel lighting, urban garage setting, soft top lighting, industrial textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXizSxYs5sz_5DVZfrgngN2ghLiXRBAhvOQeBkjQ8GveuXlted17pzju-h9-EokyQSxGsmHBVZ1Tny4A-GzC37p7ZkhEeueJIZJLNizvAEoJgDhUrlkuCZ4O1bsTLb6VWP8qtKaklCyHkv19tqzfYvjeLQdlGUB38Yx5Xd1muL-WpVx0jR00WeIE7s9rbIGspF0UW2kblDJlpnN49KOohUoBMim8MY_a4S-lJ7KthJcTHFB3rc8SLDdvmQ1JvXN7mJoHrFq6Dzi3w"/>
+</div>
+<div>
+<p class="font-headline font-bold text-primary">Hyundai Ioniq 5</p>
+<p class="text-[11px] text-secondary">Limited AWD • 2024 • Gravity Gold</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="font-mono text-xs text-secondary">KA-44581-I5</p>
+<p class="text-[10px] text-outline">KMHION544581G2</p>
+</td>
+<td class="px-6 py-5">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Available</span>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-headline font-extrabold text-primary">$58,900</p>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-secondary hover:text-primary transition-colors" title="Edit"><span class="material-symbols-outlined text-lg" data-icon="edit">edit</span></button>
+<button class="p-2 text-secondary hover:text-on-tertiary-container transition-colors" title="Mark Sold"><span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span></button>
+<button class="p-2 text-secondary hover:text-error transition-colors" title="Delete"><span class="material-symbols-outlined text-lg" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-surface-container text-right flex justify-between items-center">
+<p class="text-xs text-secondary italic">Showing 3 of 142 total units</p>
+<div class="flex gap-4">
+<button class="text-xs font-bold text-primary flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span> Previous
+                    </button>
+<button class="text-xs font-bold text-primary flex items-center gap-1 hover:underline">
+                        Next <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Notification/Recent Activity Section -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+<section class="bg-surface-container-low p-8 rounded-xl ghost-shadow">
+<h4 class="font-headline font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                    Recent Activity
+                </h4>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<div class="w-2 h-2 rounded-full bg-blue-500 mt-2"></div>
+<div>
+<p class="text-sm text-primary font-semibold">New Listing Added</p>
+<p class="text-xs text-secondary">2024 Genesis GV80 processed for South Korean export.</p>
+<p class="text-[10px] text-outline mt-1 uppercase tracking-tighter">14 mins ago</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-2 h-2 rounded-full bg-green-500 mt-2"></div>
+<div>
+<p class="text-sm text-primary font-semibold">Sale Confirmed</p>
+<p class="text-xs text-secondary">Hyundai Tucson hybrid sold to client in Sydney, AU.</p>
+<p class="text-[10px] text-outline mt-1 uppercase tracking-tighter">2 hours ago</p>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-low p-8 rounded-xl ghost-shadow flex items-center justify-between">
+<div>
+<h4 class="font-headline font-bold text-primary mb-2">Fleet Integrity Report</h4>
+<p class="text-sm text-secondary mb-4">Current inventory health is above target (94%).</p>
+<button class="text-xs font-bold text-on-primary-container bg-primary-fixed px-4 py-2 rounded-lg hover:brightness-95 transition-all">Download PDF Report</button>
+</div>
+<div class="w-24 h-24 relative">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<path class="text-secondary-fixed stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="3"></path>
+<path class="text-blue-900 stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="94, 100" stroke-linecap="round" stroke-width="3"></path>
+<text class="font-headline font-bold text-[8px] text-center fill-primary" text-anchor="middle" x="18" y="20.35">94%</text>
+</svg>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating Action Background Overlay (Hidden by Default) -->
+<div class="fixed inset-0 bg-primary/40 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4" id="modal-overlay">
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-xl ghost-shadow overflow-hidden">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-center">
+<h3 class="font-headline text-xl font-bold text-primary">Add New Vehicle Listing</h3>
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined" data-icon="close">close</span></button>
+</div>
+<form class="p-8 space-y-6">
+<div class="grid grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-secondary">Make / Model</label>
+<input class="bg-surface-container-highest border-none border-b-2 border-outline-variant px-4 py-2 text-sm focus:ring-0 focus:border-primary" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-secondary">Production Year</label>
+<input class="bg-surface-container-highest border-none border-b-2 border-outline-variant px-4 py-2 text-sm focus:ring-0 focus:border-primary" type="number"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-secondary">VIN Number</label>
+<input class="bg-surface-container-highest border-none border-b-2 border-outline-variant px-4 py-2 text-sm focus:ring-0 focus:border-primary" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-secondary">Vehicle Imagery</label>
+<div class="border-2 border-dashed border-outline-variant/30 rounded-lg h-32 flex flex-col items-center justify-center text-outline gap-2 bg-surface-container-low">
+<span class="material-symbols-outlined text-3xl" data-icon="cloud_upload">cloud_upload</span>
+<p class="text-xs">Drag &amp; Drop or Click to Upload High-Res Photos</p>
+</div>
+</div>
+<div class="flex justify-end gap-4 pt-4">
+<button class="px-6 py-2 border border-outline-variant text-primary font-bold rounded-lg text-sm" type="button">Cancel</button>
+<button class="px-6 py-2 bg-primary-gradient text-white font-bold rounded-lg text-sm" type="submit">Publish Listing</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Footer -->
+<footer class="ml-64 w-auto border-t border-slate-200 grid grid-cols-1 md:grid-cols-4 px-12 py-16 gap-8 bg-slate-100">
+<div class="col-span-2">
+<h5 class="text-xl font-bold text-blue-950 mb-4">Precision &amp; Prestige Importers</h5>
+<p class="text-sm text-slate-500 max-w-sm">The leading digital interface for Korean automotive logistics. Streamlining imports from Seoul to the world with surgical precision.</p>
+</div>
+<div>
+<h6 class="font-headline text-lg font-bold text-blue-900 mb-4 tracking-tight">Resources</h6>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-blue-900 transition-colors" href="#">Shipping Terms</a></li>
+<li><a class="hover:text-blue-900 transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-blue-900 transition-colors" href="#">Compliance Docs</a></li>
+</ul>
+</div>
+<div class="flex flex-col justify-between">
+<div>
+<h6 class="font-headline text-lg font-bold text-blue-900 mb-4 tracking-tight">Contact</h6>
+<p class="text-sm text-slate-500">support@kautoimport.io</p>
+</div>
+<p class="text-xs text-slate-500 mt-8">© 2024 Precision &amp; Prestige Importers. All Rights Reserved.</p>
+</div>
+</footer>
+</body></html>

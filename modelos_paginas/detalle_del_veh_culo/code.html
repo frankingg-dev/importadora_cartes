@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#d9e3f4",
+                    "surface-bright": "#f7f9fb",
+                    "surface-container": "#eceef0",
+                    "on-primary-fixed-variant": "#1f477b",
+                    "surface-tint": "#3a5f94",
+                    "on-secondary-container": "#596372",
+                    "on-secondary-fixed": "#121c28",
+                    "primary-fixed": "#d5e3ff",
+                    "on-tertiary-fixed-variant": "#743417",
+                    "on-primary-container": "#7497d0",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb597",
+                    "on-secondary-fixed-variant": "#3e4755",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#ffdbcd",
+                    "surface-container-highest": "#e0e3e5",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#a7c8ff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-surface-variant": "#43474f",
+                    "error-container": "#ffdad6",
+                    "on-background": "#191c1e",
+                    "on-secondary": "#ffffff",
+                    "background": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#bdc7d8",
+                    "primary": "#001a38",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#d4815d",
+                    "surface-variant": "#e0e3e5",
+                    "outline": "#747781",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary-fixed": "#001b3c",
+                    "outline-variant": "#c4c6d1",
+                    "tertiary": "#330e00",
+                    "primary-fixed-dim": "#a7c8ff",
+                    "secondary-container": "#d6e0f1",
+                    "secondary": "#555f6d",
+                    "primary-container": "#002e5d",
+                    "inverse-surface": "#2d3133",
+                    "surface-container-low": "#f2f4f6",
+                    "on-surface": "#191c1e",
+                    "tertiary-container": "#541d02",
+                    "on-tertiary-fixed": "#360f00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #001a38 0%, #002e5d 100%);
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-white/70 dark:bg-slate-950/70 backdrop-blur-md sticky top-0 z-50 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1920px] mx-auto">
+<div class="text-2xl font-black text-blue-950 dark:text-white tracking-tighter font-headline">
+                K-Auto Import
+            </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-blue-900 dark:text-blue-400 font-bold border-b-2 border-blue-900 transition-colors" href="#">Catalog</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors" href="#">Import Process</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors" href="#">Admin Login</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-highest border-none border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-4 py-2 text-sm w-64 rounded-t-lg transition-all" placeholder="Search inventory..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant">search</span>
+</div>
+<button class="kinetic-gradient text-white px-6 py-2.5 rounded-xl font-bold hover:-translate-y-0.5 transition-all shadow-lg shadow-primary/10">
+                    Get Quote
+                </button>
+</div>
+</div>
+</header>
+<main class="max-w-[1920px] mx-auto">
+<!-- Hero Section / Gallery -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-1 bg-surface-container-low min-h-[716px]">
+<!-- Main Featured Image -->
+<div class="lg:col-span-8 relative overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern dark grey Hyundai Tucson SUV parked in a minimalist high-tech showroom with soft top lighting and cinematic atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC121FTHoFi47cFMW1ukhsKfTvOswFkLLd8mcqMpAFtshJASDnJo8iuEMe86aLBIsaE4dSoNVE4L0mZcXJ9kxA9JlxjYPhKQ9QdP4Dob-T2SoVK7QU5fRTtVI2iUEH0kLctIZw0d15EQlN_X3fsI4w6Ae0m4mUNO62m1ZPK-vK1jmhga0tSSzeiHtPW0vcoiXQk3idHxchhtUTHNUzDnJ5OVVthjETy2PUKSK7bWHxndC57SNpY7msfpOmJZ_33fcVMJe2HEO5xXLQ"/>
+<div class="absolute bottom-10 left-10 z-10">
+<span class="bg-primary text-primary-fixed px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">Available Now</span>
+<h1 class="text-white font-headline font-extrabold text-5xl lg:text-7xl tracking-tighter drop-shadow-2xl">
+                        Hyundai Tucson <br/><span class="text-on-primary-container">Hybrid Limited</span>
+</h1>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+</div>
+<!-- Thumbnail Stack -->
+<div class="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-1 h-full">
+<div class="relative overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close up detail of a modern car leather interior dashboard with digital cluster and ambient blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-9RDiYhhzkaTMJvCTEdiMDcZ0RC1HN4B_skCQaRkwvulG1IkJx9bpYOZ_LxJlBxB3bg7hwVmm-2OrNVPKwq78kC6zFrTUK9nFu9KDIwGi7MieobXC7QiR5EFxzCN7kvRgNSepwywGzhskEa1om0rXcM3_0hiFagyIL70luwPA79WblcX8sXjYR_bkbRSPrJ4yKqGoj3oulk2wUeISnLlvNlucgcNx8mPtZSsBCKhXCBnOuWUKZgsRL1Et5iEDYibcsgvcZ8uL9Yw"/>
+</div>
+<div class="relative overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Detail shot of futuristic car headlights with sharp LED accents and metallic finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUp9t-J8lz-mZ6qQ6wJ0iPlu_Pt7BER--VrVKcoOpvm4ye4NPVb_2OcD25WAR8wp5J2jRhejf-KnghfFqZkyLscE7c7JrexARhw7tSiNhYPRp6nNA0Zb-cDxCo_Rmge7YybDyZqUegtzj1qpckcorP4YCFTf23RD0fd9wSgvkYEur_TGeenFCGNlwtCjaiC0aTO-Xu8wAO6ZpSnfey857umhag-6rKhTHGr5FkTdGsBuf5qzjPInSAtoz_YBzAmQGD5B1iSJol2OE"/>
+</div>
+<div class="relative overflow-hidden group hidden lg:block">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Rear view of a luxury SUV showing the wide trunk space and precision light bar under evening light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7aZ956mEUXD91N3s9ny8aO5VqhPcoblJTqtmACFV6C5-NlsywcojARN3jXms6PTupAJaDxpYSpyP1oqP3xUOvCmwaF1Ghr6a2VxdSMsi64bRGhKz7pDCZIyd7nPE-_PDnAb5PZmnnpobGkbiK_b60tqqDGb0jtYfS9dW5VM5E-5vvIow_rJz3NQSlEq9pUD8VC8c8NadO6hY5l2Gh90pMiQj0uwLnbzN_iENaaUFhK1aD94YtZx6iNw04-KN4rB38yqW1BMzVsWM"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-white flex items-center gap-2 font-bold">
+<span class="material-symbols-outlined">grid_view</span>
+                            View All 24 Photos
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical & Actions Section -->
+<section class="px-8 lg:px-24 py-20 grid grid-cols-1 lg:grid-cols-3 gap-16">
+<!-- Specs & Details -->
+<div class="lg:col-span-2 space-y-16">
+<div>
+<h2 class="font-headline text-3xl font-bold text-primary mb-8 border-l-4 border-on-primary-container pl-6">Technical Specifications</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
+<div class="space-y-1">
+<span class="text-xs uppercase tracking-widest text-on-secondary-container font-label">Engine</span>
+<p class="font-headline text-xl font-semibold">1.6L Turbo Hybrid</p>
+</div>
+<div class="space-y-1">
+<span class="text-xs uppercase tracking-widest text-on-secondary-container font-label">Horsepower</span>
+<p class="font-headline text-xl font-semibold">226 HP Combined</p>
+</div>
+<div class="space-y-1">
+<span class="text-xs uppercase tracking-widest text-on-secondary-container font-label">Drivetrain</span>
+<p class="font-headline text-xl font-semibold">HTRAC AWD</p>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary-container" style="font-size: 16px;">calendar_today</span>
+<span class="text-xs uppercase tracking-widest text-on-secondary-container font-label">Model Year</span>
+</div>
+<p class="font-headline text-xl font-semibold">2024</p>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary-container" style="font-size: 16px;">speed</span>
+<span class="text-xs uppercase tracking-widest text-on-secondary-container font-label">Mileage</span>
+</div>
+<p class="font-headline text-xl font-semibold">4,200 km</p>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary-container" style="font-size: 16px;">palette</span>
+<span class="text-xs uppercase tracking-widest text-on-secondary-container font-label">Exterior Color</span>
+</div>
+<p class="font-headline text-xl font-semibold">Amazon Grey</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-8 space-y-8">
+<h3 class="font-headline text-xl font-bold">Premium Features</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container">check_circle</span>
+<p class="text-on-surface-variant">Bose Premium Audio System (8 Speakers)</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container">check_circle</span>
+<p class="text-on-surface-variant">Panoramic Sunroof with Power Sunshade</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container">check_circle</span>
+<p class="text-on-surface-variant">Remote Smart Parking Assist (RSPA)</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container">check_circle</span>
+<p class="text-on-surface-variant">Heated &amp; Ventilated Front Seats</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container">check_circle</span>
+<p class="text-on-surface-variant">10.25-inch Digital Instrument Cluster</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container">check_circle</span>
+<p class="text-on-surface-variant">Blind-Spot View Monitor (BVM)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Pricing & Contact Sidebar -->
+<div class="lg:col-span-1">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-2xl shadow-primary/5 border border-surface-container sticky top-32">
+<div class="mb-8">
+<span class="text-sm font-label text-on-secondary-container uppercase tracking-widest">Base Export Price</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-4xl font-headline font-extrabold text-primary">$34,800</span>
+<span class="text-on-surface-variant font-medium">USD</span>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center py-3 border-b border-surface-container">
+<span class="text-on-surface-variant text-sm">Korea Internal Inspection</span>
+<span class="text-primary font-bold">Included</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-surface-container">
+<span class="text-on-surface-variant text-sm">Korea Port Handling</span>
+<span class="text-primary font-bold">$450</span>
+</div>
+<div class="bg-primary-fixed/30 p-4 rounded-lg">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-on-primary-fixed-variant" style="font-size: 20px;">sailing</span>
+<span class="text-sm font-bold text-on-primary-fixed-variant">Shipping Estimate</span>
+</div>
+<p class="text-sm text-on-primary-fixed-variant">Standard Roll-on/Roll-off (RoRo) from Busan Harbor: <span class="font-bold">$1,200 - $1,800</span></p>
+<p class="text-[10px] mt-2 text-on-primary-fixed-variant/60 uppercase tracking-tighter">Est. Delivery: 22-35 Days</p>
+</div>
+</div>
+<button class="kinetic-gradient w-full py-5 rounded-xl text-white font-headline font-bold text-lg hover:translate-y-[-2px] transition-all shadow-xl shadow-primary/20 mb-4">
+                        Contact for Quote
+                    </button>
+<button class="w-full py-4 rounded-xl border-2 border-outline-variant text-primary font-bold hover:bg-surface-container-low transition-all">
+                        Request Walk-around Video
+                    </button>
+<div class="mt-8 pt-8 border-t border-surface-container">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional male automotive export consultant in a business suit smiling slightly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD30B5zYK281gAXSMBTO3vZ7zNxqM7qHknGdUovVGal0k0H0EPbc1Ntk-_fKw_AgMnPsq9LsOp8a_E_s3iKavD_T1FtK189yrdh14GJqGQCxT6P95zzYcSueBZ-hv5PZM9d8iZk1BMi1FCspbOq5I6D4jEL3lpOIsxTbNcE2AWzPKdAWCecRmA9QoCGiS5AjzkaF5wyw6zlkmlimeilNCfzcQR-8kyii0RWpLg1658WdgAPuHpwJaEEvnBCGcPhh-14yiN3E9jvKig"/>
+</div>
+<div>
+<p class="text-sm font-bold">Sang-hoon Park</p>
+<p class="text-xs text-on-surface-variant">Export Specialist (Busan HQ)</p>
+</div>
+<div class="ml-auto flex gap-2">
+<span class="material-symbols-outlined text-on-primary-container bg-surface-container-low p-2 rounded-lg cursor-pointer">chat</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Import Process Banner -->
+<section class="bg-primary py-20 px-8">
+<div class="max-w-6xl mx-auto text-center">
+<h2 class="text-3xl lg:text-5xl font-headline font-extrabold text-white mb-12">Seamless Import from Korea</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="space-y-4">
+<div class="text-primary-fixed text-4xl font-headline font-black">01</div>
+<h4 class="text-white font-bold">Sourcing</h4>
+<p class="text-secondary-fixed text-sm">Direct access to Korea's premier domestic automotive auctions.</p>
+</div>
+<div class="space-y-4">
+<div class="text-primary-fixed text-4xl font-headline font-black">02</div>
+<h4 class="text-white font-bold">Verification</h4>
+<p class="text-secondary-fixed text-sm">120-point mechanical inspection by certified engineers in Busan.</p>
+</div>
+<div class="space-y-4">
+<div class="text-primary-fixed text-4xl font-headline font-black">03</div>
+<h4 class="text-white font-bold">Logistics</h4>
+<p class="text-secondary-fixed text-sm">Secure terminal loading and full export documentation handling.</p>
+</div>
+<div class="space-y-4">
+<div class="text-primary-fixed text-4xl font-headline font-black">04</div>
+<h4 class="text-white font-bold">Arrival</h4>
+<p class="text-secondary-fixed text-sm">Clearance support at your destination port of choice.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+<div class="grid grid-cols-1 md:grid-cols-4 px-12 py-16 gap-8 w-full max-w-[1920px] mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-bold text-blue-950 dark:text-white font-headline">Precision &amp; Prestige</div>
+<p class="text-slate-500 text-sm leading-relaxed">Connecting discerning buyers worldwide with South Korea's highest quality certified pre-owned vehicles.</p>
+</div>
+<div>
+<h5 class="text-blue-900 dark:text-blue-400 font-headline font-bold mb-6">Quick Links</h5>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-500">
+<li><a class="hover:text-blue-900 dark:hover:text-blue-100 transition-opacity" href="#">Contact Us</a></li>
+<li><a class="hover:text-blue-900 dark:hover:text-blue-100 transition-opacity" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-blue-900 dark:hover:text-blue-100 transition-opacity" href="#">Shipping Terms</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-blue-900 dark:text-blue-400 font-headline font-bold mb-6">Headquarters</h5>
+<p class="text-slate-500 text-sm leading-relaxed">
+                    Marine City 1-gil, Haeundae-gu<br/>
+                    Busan, South Korea 48060<br/>
+                    T: +82 51-XXX-XXXX
+                </p>
+</div>
+<div>
+<h5 class="text-blue-900 dark:text-blue-400 font-headline font-bold mb-6">Newsletter</h5>
+<p class="text-xs text-slate-500 mb-4">Stay updated on new inventory arrivals.</p>
+<div class="flex gap-2">
+<input class="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-lg text-xs w-full" placeholder="Your email" type="email"/>
+<button class="bg-blue-900 text-white px-4 py-2 rounded-lg font-bold text-xs">Join</button>
+</div>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 text-sm">© 2024 Precision &amp; Prestige Importers. All Rights Reserved.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">linked_camera</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">share_location</span>
+</div>
+</div>
+</footer>
+</body></html>

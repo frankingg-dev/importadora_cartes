@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d9e3f4",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "surface-tint": "#3a5f94",
+                        "on-secondary-container": "#596372",
+                        "on-secondary-fixed": "#121c28",
+                        "primary-fixed": "#d5e3ff",
+                        "on-tertiary-fixed-variant": "#743417",
+                        "on-primary-container": "#7497d0",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb597",
+                        "on-secondary-fixed-variant": "#3e4755",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-container-highest": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#a7c8ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface-variant": "#43474f",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#bdc7d8",
+                        "primary": "#001a38",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#d4815d",
+                        "surface-variant": "#e0e3e5",
+                        "outline": "#747781",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed": "#001b3c",
+                        "outline-variant": "#c4c6d1",
+                        "tertiary": "#330e00",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "secondary-container": "#d6e0f1",
+                        "secondary": "#555f6d",
+                        "primary-container": "#002e5d",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "tertiary-container": "#541d02",
+                        "on-tertiary-fixed": "#360f00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #001a38 0%, #002e5d 100%);
+        }
+        .ghost-shadow {
+            box-shadow: 0px 20px 40px rgba(0, 26, 56, 0.06);
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-white/70 dark:bg-slate-950/70 backdrop-blur-md sticky top-0 z-50 flex justify-between items-center w-full px-8 py-4 max-w-[1920px] mx-auto shadow-sm dark:shadow-none">
+<div class="text-2xl font-black text-blue-950 dark:text-white tracking-tighter">K-Auto Import</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-blue-900 dark:text-blue-400 font-bold border-b-2 border-blue-900 transition-colors py-1" href="#">Catalog</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors py-1" href="#">Import Process</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors py-1" href="#">Admin Login</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-highest border-none border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 text-sm pl-10 pr-4 py-2 w-64 rounded-t-lg transition-all" placeholder="Search VIN or Model..." type="text"/>
+</div>
+<button class="kinetic-gradient text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:-translate-y-0.5 transition-transform ghost-shadow">
+                Get Quote
+            </button>
+</div>
+</header>
+<main class="max-w-[1920px] mx-auto px-8 py-12 flex gap-12">
+<!-- Sidebar Filters -->
+<aside class="w-72 flex-shrink-0">
+<div class="sticky top-28 space-y-10">
+<div>
+<h3 class="font-headline font-bold text-xl mb-6 tracking-tight text-primary">Refine Search</h3>
+<div class="space-y-8">
+<!-- Search Inset -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Keywords</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none border-b-2 border-outline-variant focus:border-primary px-3 py-3 text-sm focus:ring-0 transition-all" placeholder="E.g. Genesis G80" type="text"/>
+</div>
+</div>
+<!-- Filter Groups -->
+<div class="space-y-6">
+<div class="flex flex-col gap-3">
+<label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Make &amp; Model</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg text-sm p-3 focus:ring-2 focus:ring-primary/10">
+<option>All Makes</option>
+<option>Hyundai</option>
+<option>Kia</option>
+<option>Genesis</option>
+</select>
+<select class="w-full bg-surface-container-low border-none rounded-lg text-sm p-3 focus:ring-2 focus:ring-primary/10">
+<option>All Models</option>
+</select>
+</div>
+<div class="flex flex-col gap-3">
+<label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Production Year</label>
+<div class="grid grid-cols-2 gap-2">
+<input class="w-full bg-surface-container-low border-none rounded-lg text-sm p-3 focus:ring-2 focus:ring-primary/10" placeholder="From" type="number"/>
+<input class="w-full bg-surface-container-low border-none rounded-lg text-sm p-3 focus:ring-2 focus:ring-primary/10" placeholder="To" type="number"/>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Price Range ($)</label>
+<div class="px-2">
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" type="range"/>
+<div class="flex justify-between mt-2 text-[10px] font-bold text-on-surface-variant">
+<span>$15,000</span>
+<span>$120,000</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-surface-container-highest text-primary font-bold text-sm rounded-xl hover:bg-surface-container-high transition-colors">
+                            Reset All Filters
+                        </button>
+</div>
+</div>
+<!-- Featured Badge -->
+<div class="p-6 rounded-2xl kinetic-gradient text-white relative overflow-hidden ghost-shadow">
+<div class="relative z-10">
+<span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Importer's Choice</span>
+<h4 class="text-lg font-bold mt-1 leading-tight">Vetted Korean Inventory</h4>
+<p class="text-xs mt-3 opacity-70 leading-relaxed">Direct access to Encar and K-Car premium auctions with full inspection reports.</p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl opacity-10 rotate-12">verified</span>
+</div>
+</div>
+</aside>
+<!-- Product Grid Section -->
+<section class="flex-grow">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h1 class="font-headline font-extrabold text-5xl tracking-tighter text-primary">Inventory Catalog</h1>
+<p class="text-on-surface-variant mt-2 text-lg">Showing 124 precision-engineered vehicles available for import.</p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-low p-1.5 rounded-xl">
+<button class="bg-surface-container-lowest text-primary p-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="text-on-surface-variant p-2 rounded-lg hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+</div>
+<!-- Bento-Inspired Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Vehicle Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden ghost-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Luxury Korean Sedan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern luxury silver sedan parked in a minimalist high-tech showroom with soft top-down architectural lighting and sleek reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9BHglMhsiILM1OLBV7NZXJ6TeR1abHFZ2k_4pijjB7E3goVGfahxuQ9LVtEDruHSN_xapXVqcfRaO0NvM0VyqOTYtgTgT1XY0s2NwC3HTyOZbkJnuwKZlzcZtIEIDONvxnb7afOVUA9iqgXU-DQXGWp20YHTEtYzZCVPvXbCwx6G8yBw6WAaFnr-EGQBMyHR1R4md-MzZVCVQBTcoGyO5vtC9CjojqGj-f64QMoe_l70WCt_pvfZKTM_iBLTOJRSVJzSYstYirlI"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Available</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline font-bold text-xl text-primary tracking-tight">2023 Genesis G80</h3>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mt-1">3.5T AWD Prestige</p>
+</div>
+<div class="text-right">
+<span class="font-headline font-extrabold text-xl text-primary">$54,800</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-4 border-t border-surface-container-high">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Mileage</span>
+<span class="text-sm font-semibold text-primary">12,450 km</span>
+</div>
+<div class="flex flex-col border-x border-surface-container-high px-4 text-center">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Fuel</span>
+<span class="text-sm font-semibold text-primary">Petrol</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Year</span>
+<span class="text-sm font-semibold text-primary">2023</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vehicle Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden ghost-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Luxury Electric Crossover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Matte grey electric SUV moving through a futuristic urban tunnel with cyan and white neon light trails reflecting on its curves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbvUAOsRmSGPrQDglQZU_jaFzRB1pbaNnC6QAmdPlb3cjglipIeroWTzYUe8X72CiD26sr5jxJAX6iiHqce_g0FLw_uFGLcbSiZQLFOztaHXuDLPFWwQMsbuF2ymiH8j3PK8F6g15abvK50K9_H4k_EqEFaBuWmRHqIsBrwYup2x69FAKCD4nr4ol4fMrZdsgl_DDXCdWG9yQB4hT8vhtoW8vTh_9HOJOLZ1QTlS-vh54CaA7SY5yBmhd1cmOnpzqaPpNAJvd0GOA"/>
+<div class="absolute top-4 left-4">
+<span class="bg-on-primary-container text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Just Arrived</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline font-bold text-xl text-primary tracking-tight">2024 Kia EV6</h3>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mt-1">GT-Line Long Range</p>
+</div>
+<div class="text-right">
+<span class="font-headline font-extrabold text-xl text-primary">$49,200</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-4 border-t border-surface-container-high">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Mileage</span>
+<span class="text-sm font-semibold text-primary">2,100 km</span>
+</div>
+<div class="flex flex-col border-x border-surface-container-high px-4 text-center">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Engine</span>
+<span class="text-sm font-semibold text-primary">Electric</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Year</span>
+<span class="text-sm font-semibold text-primary">2024</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vehicle Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden ghost-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Luxury Full-Size SUV" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Large black luxury SUV parked in front of a modern concrete architectural building at twilight with dramatic warm interior light spilling out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYKmDFeQLKAH9TSRnclzNTS_RaVCtdx--k6aUWaT395S2lnZFhs68aMWPn8Z3bJ0yCsxMsznntCyiVWxcoG49uaqkaO02iiW-OYzDGLSO8_GfoblblOHtJCHuvGUqWsa6KZn5Vi0--EovdvdlVf7bg9BRWiddpfWKUKOhfVBvzs0Y9KPlB_RIQhleIA-nQcoCawm_5nKPXnnEr5nGoqNcMvgmoXt-DRRZ7tjUsig-wuB-m3DIpPnuQFoWxsxnWsKmH7Yr2_g1qNyk"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Available</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline font-bold text-xl text-primary tracking-tight">2022 Hyundai Palisade</h3>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mt-1">Calligraphy 4WD</p>
+</div>
+<div class="text-right">
+<span class="font-headline font-extrabold text-xl text-primary">$42,500</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-4 border-t border-surface-container-high">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Mileage</span>
+<span class="text-sm font-semibold text-primary">34,200 km</span>
+</div>
+<div class="flex flex-col border-x border-surface-container-high px-4 text-center">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Seats</span>
+<span class="text-sm font-semibold text-primary">7-Pass</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Year</span>
+<span class="text-sm font-semibold text-primary">2022</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vehicle Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden ghost-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Luxury White Sedan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Pearl white luxury executive sedan on a coastal mountain road with a clear blue sea background and bright midday sun highlighting the paint texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBmsSo8ypYRb1HF0RknEj2DwHPjIJLRkdJWGcxVxnVN58BQYFEoETzRd48iMrRyx2iU8O7LVIOwRBG2e84akGEq5BvhMV0WN42uTRV_oPgFbbt-WzZRXZxHLnBTXw4qreuMyzPNpaRIg6H_gsMjkLAyQf92lcE5wV961tcZiw6DH0hQH22Zx8AG07r-sIkzLDNOcuKt9fenNqbkXd8eDSx8B0aAe7OuwyRBCo1s2P-xzYVQfR-7p_wMU1OiUdAeblsGFQCdX4rh14"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Available</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline font-bold text-xl text-primary tracking-tight">2021 Genesis G70</h3>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mt-1">2.0T Sport Prestige</p>
+</div>
+<div class="text-right">
+<span class="font-headline font-extrabold text-xl text-primary">$35,900</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-4 border-t border-surface-container-high">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Mileage</span>
+<span class="text-sm font-semibold text-primary">45,600 km</span>
+</div>
+<div class="flex flex-col border-x border-surface-container-high px-4 text-center">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Drive</span>
+<span class="text-sm font-semibold text-primary">RWD</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Year</span>
+<span class="text-sm font-semibold text-primary">2021</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vehicle Card 5 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden ghost-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Luxury Black Sedan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Deep black luxury flagship sedan parked on a rain-slicked city street at night with blurry red and yellow city lights in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWiMA6zeKkCtHDHzNmr6Vu-PtT0fO9vPHAK7okC-qf5NQwx02E5zEwyf0LGqgTbXqu-F9FGuczKk-Ejwfs_uPiyD4IeUS16C5LqLiEyy_RfpMHN2nqWtRMOfGoM_yKFL49ow6BFqSrO4Fm6yqH6nTwekRqeBiNrwZ4IpEXsJ5bwAnmwYdtkI0KIJZtKEeULRw_pc-r7vJfaIXtvWVKsZON4f8nl0CNhndjCTEsN7wHTbF4sAbahzh-hA5Ds3J7oEXS_vxZlMEja74"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Available</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline font-bold text-xl text-primary tracking-tight">2023 Kia K8</h3>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mt-1">3.5 GDI Signature</p>
+</div>
+<div class="text-right">
+<span class="font-headline font-extrabold text-xl text-primary">$41,000</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-4 border-t border-surface-container-high">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Mileage</span>
+<span class="text-sm font-semibold text-primary">8,900 km</span>
+</div>
+<div class="flex flex-col border-x border-surface-container-high px-4 text-center">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Fuel</span>
+<span class="text-sm font-semibold text-primary">Petrol</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Year</span>
+<span class="text-sm font-semibold text-primary">2023</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vehicle Card 6 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden ghost-shadow hover:-translate-y-1 transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Luxury Compact SUV" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Metallic blue compact luxury SUV parked in a designer cobblestone driveway with lush green manicured hedges and soft morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA99KpzIlwsWmMfe0oo3QXG0nHAI08r_A2FGlFG15t35y_1UfHEmqVVDUH5O-r4hKg5D2_jvCTodgrVK_BbjG3xEQdXM739LO1Twk6AygNrRknVjAbFHzwt0n9M1sKOkZPZMgKWW-5eBnVdqnqA9wzYsuFs_pox3jpGlX-6KuOUTw9h-v6x-Ju_jDqUr_A_H29IHQomwwkQOqvNX3KVEASavfB4tkWceVzC8SMK0rqMqc_BYOo3H5UY-XtlUQMuLydVFusxc8-tcvk"/>
+<div class="absolute top-4 left-4">
+<span class="bg-on-primary-container text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Just Arrived</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline font-bold text-xl text-primary tracking-tight">2023 Genesis GV70</h3>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mt-1">2.5T Sport Prestige</p>
+</div>
+<div class="text-right">
+<span class="font-headline font-extrabold text-xl text-primary">$48,700</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-4 border-t border-surface-container-high">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Mileage</span>
+<span class="text-sm font-semibold text-primary">5,300 km</span>
+</div>
+<div class="flex flex-col border-x border-surface-container-high px-4 text-center">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Engine</span>
+<span class="text-sm font-semibold text-primary">Turbo</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-60">Year</span>
+<span class="text-sm font-semibold text-primary">2023</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex justify-center items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">3</button>
+<span class="px-2">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 grid grid-cols-1 md:grid-cols-4 px-12 py-16 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-bold text-blue-950 dark:text-white mb-6">K-Auto Import</div>
+<p class="text-slate-500 dark:text-slate-500 text-sm leading-relaxed">
+                Premium sourcing of South Korean automotive excellence. Direct from Seoul to your driveway.
+            </p>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary dark:text-blue-400 mb-6 uppercase tracking-widest text-xs">Services</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="text-slate-500 dark:text-slate-500 hover:text-blue-900 transition-opacity" href="#">Auction Access</a></li>
+<li><a class="text-slate-500 dark:text-slate-500 hover:text-blue-900 transition-opacity" href="#">Full Inspection</a></li>
+<li><a class="text-slate-500 dark:text-slate-500 hover:text-blue-900 transition-opacity" href="#">Global Logistics</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary dark:text-blue-400 mb-6 uppercase tracking-widest text-xs">Resources</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="text-slate-500 dark:text-slate-500 hover:text-blue-900 transition-opacity" href="#">Contact Us</a></li>
+<li><a class="text-slate-500 dark:text-slate-500 hover:text-blue-900 transition-opacity" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 dark:text-slate-500 hover:text-blue-900 transition-opacity" href="#">Shipping Terms</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary dark:text-blue-400 mb-6 uppercase tracking-widest text-xs">Newsletter</h4>
+<div class="flex flex-col gap-3">
+<input class="bg-surface border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Email address" type="email"/>
+<button class="kinetic-gradient text-white py-3 rounded-lg font-bold text-xs uppercase tracking-widest">Subscribe</button>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 pt-12 mt-4 border-t border-slate-200 dark:border-slate-800 text-center">
+<p class="text-slate-500 dark:text-slate-500 text-xs">© 2024 Precision &amp; Prestige Importers. All Rights Reserved.</p>
+</div>
+</footer>
+</body></html>
