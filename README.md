@@ -1,58 +1,61 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Importadora de Vehículos RCV - Proyecto Tópicos I
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📝 Descripción del Problema
+En el mercado de Punta Arenas, existe una falta de información precisa y confiable al cotizar unidades de segunda mano o importadas. Las plataformas actuales suelen carecer de datos técnicos exhaustivos y claridad sobre los métodos de pago, lo que genera desconfianza en los clientes.
 
-## About Laravel
+## 💡 Solución Propuesta
+**Importadora RCV** es una plataforma web de alta transparencia diseñada para eliminar la incertidumbre. El sistema entrega información técnica completa para una decisión informada, respaldada por un entorno digital profesional y seguro:
+* **Identificación:** Información técnica completa (VIN).
+* **Estado:** Kilometraje real y estado logístico.
+* **Gestión:** Claridad en el proceso de adquisición.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Stack Tecnológico
+Para materializar esta solución, se ha definido el siguiente stack técnico:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* **Backend:** PHP 8.5 con el framework **Laravel** para gestionar la lógica comercial.
+* **Frontend:** Integración con **Inertia.js** para una experiencia de usuario fluida y reactiva.
+* **Base de Datos:** **MySQL** para garantizar la integridad y centralización de la información.
+* **Seguridad:** Implementación de paquetes de **Spatie** para el control de roles y permisos.
+* **Diseño:** Sistema "Precision & Prestige" (grilla de 8px y principios de *Glassmorphism*).
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📈 Avances del Proyecto (al 20 de abril de 2026)
+El proyecto se encuentra en una 2da etapa inicial consolidada con los siguientes logros:
+1. **Configuración del Entorno:** Instalación de Laravel, Inertia, Spatie y MySQL.
+2. **Arquitectura de Datos:** Base de datos `importadora_cartes` creada y conectada exitosamente.
+3. **Autenticación:** Sistema de usuarios operativo, permitiendo el ingreso del administrador.
+4. **Prototipado:** Primer boceto funcional de la página principal (Home) validado.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 🚀 Cómo iniciar el proyecto
+Para poner en marcha el servidor localmente, sigue estos pasos:
 
-## Agentic Development
+1. **Configurar el entorno:** Asegúrate de tener tu archivo `.env` configurado con las credenciales de tu base de datos MySQL.
+2. **Instalar dependencias:**
+   ```bash
+   composer install
+   npm install
+3. **Ejecutar todas las migraciones de laravel**
+    ```bash
+    php artisan migrate --seeder
+    php artisan migrate
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+4. **Ejecutar el servidor de Laravel:**
+    ```bash
+    php artisan serve
 
-```bash
-composer require laravel/boost --dev
+5. **Ejecutar el compilador de Frontend (Vite/Inertia):**
+En una terminal nueva, ejecuta:
+    ```bash
+    npm run dev
 
-php artisan boost:install
-```
+---
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+👥 **Información Académica**
+* **Alumno:** Franco Cartes Vera. 
+* **Asignatura:** Tópicos I.
+* **Profesor:** Patricia Maldonado.
