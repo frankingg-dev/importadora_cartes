@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
@@ -21,6 +22,7 @@ class AuthController extends Controller
     {
         return Inertia::render('Auth/Login');
     }
+
     // Lógica de registro
     public function register(Request $request)
     {
@@ -36,11 +38,13 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $user->assignRole('cliente');
+        $clienteRole = Role::findOrCreate('cliente', 'web');
+
+        $user->assignRole($clienteRole);
 
         Auth::login($user);
 
-        return redirect('/');
+        return redirect()->intended('/');
     }
 
     // Lógica de Logout
@@ -63,12 +67,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Redirección inteligente según el rol
-            if (Auth::user()->hasRole('admin')) {
-                return redirect()->intended('/admin/dashboard');
-            }
-
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/');
         }
 
         return back()->withErrors([

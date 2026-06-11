@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -42,12 +43,18 @@ class HandleInertiaRequests extends Middleware
                     'id' => $request->user()->id,
                     'name' => $request->user()->name,
                     'email' => $request->user()->email,
-                    // Agregamos roles y permisos de Spatie aquí
                     'roles' => $request->user()->getRoleNames(),
                     'permissions' => $request->user()->getAllPermissions()->pluck('name'),
                 ] : null,
             ],
-            // También puedes pasar mensajes flash (éxito/error) si quieres
+            'adminNotifications' => fn () => $request->user()?->hasRole('admin') ? [
+                'unclaimedTickets' => Ticket::query()
+                    ->whereNull('admin_id')
+                    ->where('estado', '!=', 'cerrado')
+                    ->count(),
+            ] : [
+                'unclaimedTickets' => 0,
+            ],
             'flash' => [
                 'message' => fn () => $request->session()->get('message'),
             ],

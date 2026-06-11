@@ -17,10 +17,10 @@ class RolePermissionSeeder extends Seeder
 
         // 2. Crear usuario Admin inicial
         $admin = User::firstOrCreate(
-            ['email' => 'admin@kautoimport.io'],
+            ['email' => 'admin@impcartes.cl'],
             [
-                'name' => 'Administrador',
-                'password' => Hash::make('password123'),
+                'name' => 'Administrador Cartes',
+                'password' => Hash::make('cartes123'),
             ]
         );
 
