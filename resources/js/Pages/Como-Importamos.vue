@@ -105,7 +105,7 @@ const preguntas = [
                     <div class="relative z-10">
                         <div class="flex items-start justify-between gap-4 mb-8">
                             <div :class="paso.numeroColor" class="relative z-20 text-6xl font-black leading-none">{{ paso.numero }}</div>
-                            <span :class="paso.iconoCaja" class="material-symbols-outlined relative z-20 flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg transition-transform group-hover:scale-110">
+                            <span :class="paso.iconoCaja" style="z-index: 100;" class="material-symbols-outlined relative z-20 flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg transition-transform group-hover:scale-110">
                                 {{ paso.icono }}
                             </span>
                         </div>
