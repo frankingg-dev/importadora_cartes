@@ -101,11 +101,11 @@ const preguntas = [
                     class="group relative overflow-hidden p-8 rounded-3xl border flex flex-col justify-between h-full transition-all hover:-translate-y-1 hover:shadow-xl"
                 >
                     <div :class="paso.linea" class="absolute left-0 top-0 h-1.5 w-full"></div>
-                    <div class="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/70"></div>
-                    <div>
+                    <div class="absolute -right-8 -top-8 z-0 h-28 w-28 rounded-full bg-white/70"></div>
+                    <div class="relative z-10">
                         <div class="flex items-start justify-between gap-4 mb-8">
-                            <div :class="paso.numeroColor" class="text-6xl font-black leading-none">{{ paso.numero }}</div>
-                            <span :class="paso.iconoCaja" class="material-symbols-outlined flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg transition-transform group-hover:scale-110">
+                            <div :class="paso.numeroColor" class="relative z-20 text-6xl font-black leading-none">{{ paso.numero }}</div>
+                            <span :class="paso.iconoCaja" class="material-symbols-outlined relative z-20 flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg transition-transform group-hover:scale-110">
                                 {{ paso.icono }}
                             </span>
                         </div>
