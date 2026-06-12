@@ -11,7 +11,7 @@ const pasos = [
     {
         numero: '01',
         titulo: 'Revisa el stock',
-        texto: 'En el catalogo puedes ver marca, modelo, ano, precio y detalles principales de cada vehiculo publicado.',
+        texto: 'En el catalogo puedes ver marca, modelo, año, precio y detalles principales de cada vehiculo publicado.',
         icono: 'search',
         fondo: 'bg-blue-50',
         borde: 'border-blue-100',
@@ -156,7 +156,7 @@ const preguntas = [
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="flex items-center gap-2 text-sm text-slate-200">
                             <span class="material-symbols-outlined text-yellow-500 text-base">check_circle</span>
-                            <span>Ano, version y kilometraje</span>
+                            <span>Año, version y kilometraje</span>
                         </div>
                         <div class="flex items-center gap-2 text-sm text-slate-200">
                             <span class="material-symbols-outlined text-yellow-500 text-base">check_circle</span>

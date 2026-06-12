@@ -145,7 +145,7 @@
                 </Field>
               </div>
               <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <Field label="Ano" error-key="anio"><input v-model="form.anio" type="number" class="input"></Field>
+                <Field label="Año" error-key="anio"><input v-model="form.anio" type="number" class="input"></Field>
                 <Field label="Color" error-key="color">
                   <input v-model="form.color" list="colores-auto" class="input" placeholder="Negro">
                   <datalist id="colores-auto">

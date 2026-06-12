@@ -38,7 +38,7 @@
               <thead>
                 <tr class="bg-slate-50/50">
                   <th class="px-7 py-4 text-[11px] font-bold uppercase tracking-widest text-slate-400">Modelo</th>
-                  <th class="px-7 py-4 text-[11px] font-bold uppercase tracking-widest text-slate-400 text-center">Ano</th>
+                  <th class="px-7 py-4 text-[11px] font-bold uppercase tracking-widest text-slate-400 text-center">Año</th>
                   <th class="px-7 py-4 text-[11px] font-bold uppercase tracking-widest text-slate-400 text-right">Precio</th>
                   <th class="px-7 py-4 text-[11px] font-bold uppercase tracking-widest text-slate-400 text-center">Estado</th>
                 </tr>

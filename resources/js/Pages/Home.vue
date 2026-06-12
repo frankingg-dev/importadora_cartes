@@ -119,7 +119,7 @@ const verDetalle = (auto) => {
                     <span class="material-symbols-outlined text-4xl text-yellow-500 mb-6">fact_check</span>
                     <h4 class="text-3xl font-bold text-gray-900 mb-4">Datos claros desde el inicio</h4>
                     <p class="text-gray-600 leading-relaxed">
-                        Publicamos ano, kilometraje, precio y detalles relevantes para que compares sin vueltas.
+                        Publicamos año, kilometraje, precio y detalles relevantes para que compares sin vueltas.
                     </p>
                 </div>
 
