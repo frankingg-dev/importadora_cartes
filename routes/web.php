@@ -14,6 +14,7 @@ Route::get('/catalogo', [HomeController::class, 'catalogo'])->name('catalogo');
 Route::get('/autos/{auto}', [HomeController::class, 'auto'])->name('autos.show');
 Route::get('/como-importamos', [HomeController::class, 'comoImportamos'])->name('como-importamos');
 Route::get('/quienes-somos', [HomeController::class, 'quienesSomos'])->name('quienes-somos');
+Route::get('/infografia-proyecto', [HomeController::class, 'infografia'])->name('infografia-proyecto');
 Route::get('/contacto', [HomeController::class, 'contacto'])->name('contacto');
 Route::post('/contacto', [CotizacionController::class, 'store'])->name('contacto.store');
 

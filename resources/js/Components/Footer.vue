@@ -14,6 +14,7 @@
           <li><a href="/contacto" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2">Contacto</a></li>
           <li><a href="/quienes-somos" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2">Nosotros</a></li>
           <li><a href="/como-importamos" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2">Como comprar</a></li>
+          <li><a href="/infografia-proyecto" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2">Infografia</a></li>
         </ul>
       </div>
 

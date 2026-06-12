@@ -32,6 +32,11 @@ class HomeController extends Controller
         return Inertia::render('Quienes-Somos');
     }
 
+    public function infografia()
+    {
+        return Inertia::render('InfografiaProyecto');
+    }
+
     public function catalogo()
     {
         $autos = Auto::query()
