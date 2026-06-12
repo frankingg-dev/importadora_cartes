@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { Head, useForm, usePage } from '@inertiajs/vue3';
 import Footer from '@/Components/Footer.vue';
 import Navbar from '@/Components/Navbar.vue';
@@ -13,12 +13,13 @@ defineProps({
 });
 
 const page = usePage();
+const vehiculoInteres = ref('');
 
 const form = useForm({
     auto_id: '',
     nombre: '',
     email: '',
-    telefono: '',
+    telefono: '+56 ',
     modelo_interes: '',
     mensaje: '',
 });
@@ -26,13 +27,19 @@ const form = useForm({
 onMounted(() => {
     const auto = new URLSearchParams(window.location.search).get('auto');
     if (auto) {
-        form.auto_id = auto;
+        vehiculoInteres.value = auto;
     }
 });
 
 const submit = () => {
+    form.auto_id = vehiculoInteres.value === 'otros' ? '' : vehiculoInteres.value;
+    form.modelo_interes = vehiculoInteres.value === 'otros' ? 'Otros' : '';
+
     form.post('/contacto', {
-        onSuccess: () => form.reset(),
+        onSuccess: () => {
+            form.reset();
+            vehiculoInteres.value = '';
+        },
     });
 };
 </script>
@@ -108,23 +115,20 @@ const submit = () => {
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label for="telefono" class="block text-sm font-semibold text-slate-700 mb-2">Telefono</label>
-                                <input id="telefono" v-model="form.telefono" type="tel" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 text-slate-950" placeholder="+56 9 1234 5678">
+                                <input id="telefono" v-model="form.telefono" type="tel" required pattern="^\+56\s?[0-9\s]{8,13}$" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 text-slate-950" placeholder="+56 9 1234 5678" title="Debe comenzar con +56. Ej: +56 9 1234 5678">
                                 <p v-if="form.errors.telefono" class="mt-2 text-sm text-red-600">{{ form.errors.telefono }}</p>
                             </div>
                             <div>
                                 <label for="auto" class="block text-sm font-semibold text-slate-700 mb-2">Vehiculo de interes</label>
-                                <select id="auto" v-model="form.auto_id" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 text-slate-950">
+                                <select id="auto" v-model="vehiculoInteres" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 text-slate-950">
                                     <option value="">Selecciona un vehiculo</option>
                                     <option v-for="auto in autos" :key="auto.id" :value="auto.id">
                                         {{ auto.marca }} {{ auto.modelo }} {{ auto.version ? `- ${auto.version}` : '' }}
                                     </option>
+                                    <option value="otros">Otros</option>
                                 </select>
+                                <p v-if="form.errors.auto_id || form.errors.modelo_interes" class="mt-2 text-sm text-red-600">{{ form.errors.auto_id || form.errors.modelo_interes }}</p>
                             </div>
-                        </div>
-
-                        <div>
-                            <label for="modelo_interes" class="block text-sm font-semibold text-slate-700 mb-2">Otro vehiculo</label>
-                            <input id="modelo_interes" v-model="form.modelo_interes" type="text" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 text-slate-950" placeholder="Ej: Toyota Yaris, Chevrolet Sail, etc.">
                         </div>
 
                         <div>
